@@ -1294,3 +1294,10 @@ display: flex;
 align-content: center;
 align-items: center;
 }
+
+.error{
+    color:red;
+    font-size: 0.8rem;
+    align-content: center;
+    margin: 0 auto;
+}
