@@ -25,6 +25,12 @@
             </ul>
         </nav>
     </header>
+    <div id="tituloGan">
+        <h1>☺  GANADOR  SUSCRIPCION  FULL !!<div id="user-info"></div></h1>
+    </div>
+    
+
+   
     <main id="mainDetalle" class="mainDetalle">
       <section class="detalle"  data-aos="zoom-in" >
         <div class="contenedorDetalle" >
@@ -121,6 +127,35 @@
     <script>
     AOS.init();
     </script>
+   
+
+   <script>
+    //hacer un pedido(Solicitud-request) a la API
+    fetch('https://randomuser.me/api/')
+      .then(response=>response.json())
+      .then(data=>
+      {
+        const usuario=data.results[0];
+        const name=usuario.name.first;
+        const last=usuario.name.last;
+        const city=usuario.location.city;
+        const country=usuario.location.country;
+
+        const imagen = usuario.picture.medium;
+        //mostrar por el navegador
+        const userInfo=document.getElementById('user-info');
+        userInfo.innerHTML=`<p><strong>${name}</strong>
+                            <strong>${last}</strong><br>
+                            <strong>Residencia : ${city}</strong> - 
+                            <strong>${country}</strong></p>
+                            <img  id="imagen" src="${imagen}">`;
+      })
+      .catch(error=>{
+        console.log("No se obtuvieron datos",error);
+      });
+</script>
+
+    
 </body>
 </html>
  

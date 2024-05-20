@@ -1301,3 +1301,26 @@ align-items: center;
     align-content: center;
     margin: 0 auto;
 }
+
+#user-info{
+    color:red;
+    font-size: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    column-gap: 5ch;
+    padding: 15px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+#tituloGan{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+}
+#imagen{
+    width:100px;
+    height:100px;
+    border-radius:160px;
+    border:5px solid #666;
+    padding: 5px;
+}
