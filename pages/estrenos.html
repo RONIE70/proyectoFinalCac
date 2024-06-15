@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Movies</title>
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
+    <link rel="stylesheet" href="../css/estilos.css">
+    <script src="https://kit.fontawesome.com/f7fb471b65.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="shortcut icon" href="../assets/img/favicon-16x16.png" type="image/x-icon">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"> <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+    <header class="header">
+        <nav class="navegacion">
+            <a class="anclaLogo" href="../index.html">
+                <i class="fas fa-film" aria-hidden="true"></i>
+                <span>SC-Movies</span>
+            </a>
+            <ul class="listaNav">
+                <li class="listaItem"><a class="linkNav" href="../index.html">Principal</a></li>
+                <li class="listaItem"><a class="linkNav" href="/pages/misfavoritos.html">Mis Favoritos</a></li>
+                <li class="listaItem"><a class="linkNav iniciarSesion" href="/pages/iniciosesion.html"><img src="../assets/img/login.png" width="30"></a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div id="movies"></div>
+    
+</div>
+
+    <script>
+        // Opciones para las peticiones fetch a la API
+        const options = {
+            method: 'GET', // Método de la petición (GET)
+            headers: {
+                accept: 'application/json', // Tipo de respuesta esperada (JSON)
+                Authorization: 'c1fbba982fdbac8237859297f86c4dca'
+            }
+        };
+
+        const apiUrl = 'https://api.themoviedb.org/3/movie/popular?language=en-US&page=1';
+
+        async function fetchMovies() {
+            try {
+                const response = await fetch(apiUrl, options);
+                console.log('Response status:', response.status);
+                if (!response.ok) {
+                    throw new Error(`Network response was not ok: ${response.statusText}`);
+                }
+                const data = await response.json();
+                console.log('Fetched data:', data);
+                displayMovies(data.results);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        function displayMovies(movies) {
+            const moviesContainer = document.getElementById('movies');
+            moviesContainer.innerHTML = '';
+
+            movies.forEach(movie => {
+                const movieElement = document.createElement('div');
+                movieElement.classList.add('movie');
+
+                const moviePoster = document.createElement('img');
+                moviePoster.src = `https://image.tmdb.org/t/p/w200${movie.poster_path}`;
+                moviePoster.alt = movie.title;
+
+                const movieDetails = document.createElement('div');
+                movieDetails.classList.add('movie-details');
+
+                const movieTitle = document.createElement('h2');
+                movieTitle.textContent = movie.title;
+
+                const movieOverview = document.createElement('p');
+                movieOverview.textContent = movie.overview;
+
+                movieDetails.appendChild(movieTitle);
+                movieDetails.appendChild(movieOverview);
+                movieElement.appendChild(moviePoster);
+                movieElement.appendChild(movieDetails);
+                moviesContainer.appendChild(movieElement);
+            });
+        }
+
+        // Fetch and display movies when the page loads
+        fetchMovies();
+    </script>
+    <footer class="footer">
+        <nav class="navegacion">
+            <ul class="listaNav">
+                <li class="listaItem"><a class="linkNav" href="">Términos y condiciones</a></li>
+                <li class="listaItem"><a class="linkNav" href="">Preguntas frecuentes</a></li>
+                <li class="listaItem"><a class="linkNav" href="">Ayuda</a></li>
+                <li class="listaItem"><a class="linkNav administradorPeliculas" href="">Preferencias</a></li>
+            </ul>
+        </nav>
+        <a href="#main" class="flechaArriba">
+            <img src="../assets/img/flecha-hacia-arriba.png" alt="ir arriba flecha">
+        </a>
+    </footer>
+</body>
+</html>
