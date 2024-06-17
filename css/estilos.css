@@ -1028,6 +1028,11 @@ body{
                 font-weight: 700;
                 margin-bottom: 20px;
             }
+            .tituloInsertPelis{
+                font-size: 2.5rem;
+                font-weight: 700;
+                margin-bottom: 20px;
+            }
             /*seleccionar todos los input menos el checkbox*/
             form{
                 width: 100%;

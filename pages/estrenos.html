@@ -38,7 +38,8 @@
             method: 'GET', // Método de la petición (GET)
             headers: {
                 accept: 'application/json', // Tipo de respuesta esperada (JSON)
-                Authorization: 'c1fbba982fdbac8237859297f86c4dca'
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhYTJjYTAwZDYxZWIzOTEyYjZlNzc4MDA4YWQ3ZmNjOCIsInN1YiI6IjYyODJmNmYwMTQ5NTY1MDA2NmI1NjlhYyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.4MJSPDJhhpbHHJyNYBtH_uCZh4o0e3xGhZpcBIDy-Y8'
+           
             }
         };
 
@@ -55,7 +56,7 @@
                 console.log('Fetched data:', data);
                 displayMovies(data.results);
             } catch (error) {
-                console.error('Error fetching data:', error);
+                console.console.error();
             }
         }
 
@@ -91,18 +92,19 @@
         // Fetch and display movies when the page loads
         fetchMovies();
     </script>
-    <footer class="footer">
-        <nav class="navegacion">
-            <ul class="listaNav">
-                <li class="listaItem"><a class="linkNav" href="">Términos y condiciones</a></li>
-                <li class="listaItem"><a class="linkNav" href="">Preguntas frecuentes</a></li>
-                <li class="listaItem"><a class="linkNav" href="">Ayuda</a></li>
-                <li class="listaItem"><a class="linkNav administradorPeliculas" href="">Preferencias</a></li>
-            </ul>
-        </nav>
-        <a href="#main" class="flechaArriba">
-            <img src="../assets/img/flecha-hacia-arriba.png" alt="ir arriba flecha">
-        </a>
-    </footer>
+    
 </body>
+<footer class="footer">
+    <nav class="navegacion">
+        <ul class="listaNav">
+            <li class="listaItem"><a class="linkNav" href="">Términos y condiciones</a></li>
+            <li class="listaItem"><a class="linkNav" href="">Preguntas frecuentes</a></li>
+            <li class="listaItem"><a class="linkNav" href="">Ayuda</a></li>
+            <li class="listaItem"><a class="linkNav administradorPeliculas" href="">Preferencias</a></li>
+        </ul>
+    </nav>
+    <a href="#main" class="flechaArriba">
+        <img src="../assets/img/flecha-hacia-arriba.png" alt="ir arriba flecha">
+    </a>
+</footer>
 </html>
