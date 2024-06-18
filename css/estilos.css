@@ -103,37 +103,7 @@ body{
    
 }
 
-/*ESTILOS PARA HEADER MOBILE Y TABLET*/
 
-@media (max-width: 768px) {
-    .header{
-        height: initial;
-        .navegacion{
-            margin-left:10px;
-            margin-right: 10px;
-            flex-direction: column;
-            row-gap: 20px;
-            .anclaLogo{
-                font-size: 1.2rem;
-                font-weight:700;
-            }
-            .listaNav{
-               
-                padding:initial;
-                .listaItem{
-                    .linkNav{
-                        font-weight: 400;
-                        margin-right: initial;
-                        font-size: 1rem;
-                        padding: 0.2rem;
-                        
-                    }
-                  
-                }
-            }
-        }
-    }
-}
 /*ESTILOS PARA MAIN ESCRITORIO*/
 .main{
     .sectionPrincipal{
@@ -1013,15 +983,15 @@ body{
          /*seccion de registrarse.html*/
         .seccionRegistrarse{
             background-color:rgb(42, 42, 42);
-            width: 30%;
+            width: 60%;
             margin:0 auto;
             border-radius: 5px;
-            padding: 40px 20px;
+            padding: 20px 20px;
             display: flex;
             flex-direction:column;
-            justify-content:center;
-            align-items: center;
-            height: 90vh;
+            justify-content: space-around;
+            
+        
             font-size:1.2rem;
             .tituloRegistrarse{
                 font-size: 2.5rem;
@@ -1029,15 +999,16 @@ body{
                 margin-bottom: 20px;
             }
             .tituloInsertPelis{
-                font-size: 2.5rem;
-                font-weight: 700;
-                margin-bottom: 20px;
+                font-size: 2rem;
+                font-weight: 500;
+               position: relative;
+               left: 15rem;
             }
             /*seleccionar todos los input menos el checkbox*/
             form{
                 width: 100%;
                 padding:40px;
-                input:not(.check,.boton),select{
+                input:not(.check,.boton,.foto),select{
                     width: 100%;
                     margin-bottom: 20px;
                     height: 40px;
@@ -1048,6 +1019,11 @@ body{
                     background-color: #333333;
                     outline: none;
                     color:white;
+                }
+                .foto{
+                    position: relative;
+                    
+                    
                 }
                 .terminos{
                     font-size: 0.8rem;
@@ -1070,6 +1046,17 @@ body{
                     font-weight: 500;
                    
                 }
+                #boton2{
+                    width: 96%;
+                    box-sizing: content-box;
+                    background-color:#e61b1b;
+                    border: 2px solid #e61b1b;
+                    color: #ffffff;
+                    padding: 1rem 1rem;
+                    border-radius: 5px;
+                    font-size: 1rem;
+                    font-weight: 500;
+                }
                 .ayuda{
                     margin-top:40px;
                     font-size: 1rem;
@@ -1083,55 +1070,6 @@ body{
         }
    
     }
-}
-
-/*media querys para mobile PAGINA registrarse*/
-@media (max-width: 1200px) {
-    .bodyRegistrarse{
-        .headerRegistrarse{
-            padding:20px;
-            .anclaLogo{
-                font-size: 1rem;
-            }
-        }
-        .main{
-            .seccionRegistrarse{
-                width: 95%;
-                padding: 10px 10px;
-                .tituloRegistrarse{
-                    font-size: 2rem;
-                }
-               form{
-                width: 100%;
-                text-align: center;
-               
-                input:not(.check,.boton),select{
-                    width: 80%;
-                    height: 35px;
-                    font-size: 1rem;
-                }
-                .terminos{
-                    width: 80%;
-                    margin:0 auto;
-                    font-size: 0.7rem;
-                }
-                .boton{
-                    margin-top: 20px;
-                    margin-bottom: 20px;
-                    width: 70%;
-                    padding: 0.8rem 0.8rem;
-                    font-size: 0.8rem;
-                }
-                .ayuda{
-                    text-align: left;
-                    font-size: 0.8rem;
-                }
-               }
-               
-            }
-        }
-    }
-
 }
 
 /*ESTILOS ESCRITORIO Detalle Mario*/
@@ -1214,79 +1152,7 @@ body{
     }
 
 }
-/*ESTILOS MOBILE Y TABLETS DETALLE*/
-@media screen and (max-width:1200px){
-    .mainDetalle{
-        .detalle{
-            height: initial;
-            .contenedorDetalle{
-                flex-direction: column;
-                row-gap: 20px;
-                img{
-                    width: 100%;
-                    height: 300px;
-                }
-                .textoDetalle{
-                    h1{
-                        font-size: 1.5rem;
-                    }
-                    h2{
-                        font-size: 1rem;
-                    }
-                    .contenedorCreditos{
-                        flex-direction: column;
-                        row-gap: 10px;
-                    }
-                }
-            }
-        }
-        .trailer{
-            width:95%;
-            padding-top:50px;
-            padding-bottom: 50px;
-            flex-direction: column;
-            row-gap: 20px;
-            .contenedorTrailer{
-                width: 100%;
-                h2{
-                    margin-bottom: 20px;
-                }
-                iframe{
-                    width: 100%;
-                    height: 300px;
-                
-                }
-            }
-            .contenedorInfo{
-                width: 100%;
-                .redes{
-                    width: 100% ;
-                    ul{
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
-                       
-                        li{
-                            a{
-                                font-size: 2rem;
-                                margin-right: 20px;
-                            }
-                        }
-                    }
-                }
-                .info{
-                    table{
-                        tr{
-                            td{
-                                font-size: 1rem;
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-}
+
 
 hr{
     border: 1px solid #c51414;
@@ -1410,3 +1276,7 @@ align-items: center;
     height: 50%;
     
 }
+
+
+
+
