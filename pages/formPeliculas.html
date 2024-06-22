@@ -28,44 +28,39 @@ Pelicula::TraerTodasPeliculas();
       <section  data-aos="zoom-in"  data-aos-duration="1000" class="seccionRegistrarse">
     <div id="formato">
         <h4 class="tituloInsertPelis"> SUBI TU PELI FAVORITA</h4>
-        <div>
-            <form  enctype="multipart/form-data" id="formularioPelisFoto" action="../php/hacerInsertarPeli.php" method="post">
-                <div class="foto">
+    
+       
+            <form enctype="multipart/form-data" class="mb-4"  id="formularioPelis" action="../php/hacerInsertarPeli.php" method="post">
+            <div class="row">
                     <h4>FOTO DE PORTADA</h4>
                     <p> <input name="subir_archivo" type="file" /></p>
                 </div>
-            </form>
-        </div>
-    
-        <div>
-            <form  enctype="multipart/form-data" id="formularioPelis" action="../php/hacerInsertarPeli.php" method="post">
-        
                 <div>
-                    <input type="text" placeholder="Título" name="titulo" id="titulo">
+                    <input type="text" placeholder="Título" name="titulo" id="titulo" requerid >
                     <span id="nombreError" class="error" ></span>
                 </div>
                 <div>
-                    <input type="date" placeholder="Fecha de Lanzamiento" name="fechaLanz">
+                    <input type="date" placeholder="Fecha de Lanzamiento" name="fechaLanz" requerid >
                     <span id="emailError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Género"  name="genero" id="genero">
+                    <input type="text" placeholder="Género"  name="genero" id="genero" requerid >
                     <span id="emailError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Duración"  name="duracion" id="duracion">
+                    <input type="text" placeholder="Duración"  name="duracion" id="duracion" requerid >
                     <span id="emailError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Director"  name="director" id="director">
+                    <input type="text" placeholder="Director"  name="director" id="director" requerid >
                     <span id="emailError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Reparto"  name="reparto" id="reparto">
+                    <input type="text" placeholder="Reparto"  name="reparto" id="reparto" requerid >
                     <span id="emailError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Sinopsis"  name="sinopsis" id="sinopsis">
+                    <input type="text" placeholder="Sinopsis"  name="sinopsis" id="sinopsis" requerid >
                     <span id="sinopsisError" class="error"></span>
                 </div>
                 
@@ -80,11 +75,24 @@ Pelicula::TraerTodasPeliculas();
                 
             
             </form>
-            </div>  
+             
     </div>
       </section>
    
     </main>
+    <footer class="footer">
+        <nav class="navegacion">
+            <ul class="listaNav">
+                <li class="listaItem"><a class="linkNav" href="">Términos y condiciones</a></li>
+                <li class="listaItem"><a class="linkNav" href="">Preguntas frecuentes</a></li>
+                <li class="listaItem"><a class="linkNav" href="">Ayuda</a></li>
+                <li class="listaItem"><a class="linkNav administradorPeliculas" href="">Preferencias</a></li>
+            </ul>
+        </nav>
+        <a href="#main" class="flechaArriba">
+            <img src="../assets/img/flecha-hacia-arriba.png" alt="ir arriba flecha">
+        </a>
+    </footer>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
     AOS.init();

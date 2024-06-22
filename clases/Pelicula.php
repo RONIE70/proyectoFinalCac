@@ -9,6 +9,19 @@ class Pelicula
   	public $director;
     public $reparto;
     public $sinopsis;
+    public $foto;
+
+	public function __construct($titulo,$genero,$fechaLanz,$duracion=null,$director=null,$reparto=null,$sinopsis=null,$id=null)
+    {
+      $this->id=$id;  
+      $this->titulo=$titulo;  
+      $this->genero=$genero; 
+      $this->fechLanz=$fechaLanz; 
+      $this->duracion=$duracion;   
+      $this->director=$director; 
+      $this->reparto=$reparto;  
+      $this->sinopsis=$sinopsis;  
+    }
 
 
     public static function RetornaArrayPeliculas()
@@ -16,14 +29,14 @@ class Pelicula
             $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
             $consulta =$objetoAccesoDato->RetornarConsulta("SELECT * FROM peliculas");
             $consulta->execute();           
-            return $consulta->fetchAll(PDO::FETCH_CLASS, "Pelicula");     
+            return $consulta->fetchAll();     
     }
 
-    public static function InsertarUnaPelicula($titulo, $fechaLanz, $duracion,$genero,$director, $reparto, $sinopsis)                            
+    public static function InsertarUnaPelicula($titulo, $fechaLanz, $duracion,$genero,$director, $reparto, $sinopsis,$foto)                            
   	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into peliculaingresada (titulo, fechaLanz, duracion, genero,director,reparto,sinopsis) 
-        values ('$titulo', '$fechaLanz', '$duracion','$genero',  '$director','$reparto', '$sinopsis')");
+		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into peliculaingresada (titulo, fechaLanz, duracion, genero,director,reparto,sinopsis,foto) 
+        values ('$titulo', '$fechaLanz', '$duracion','$genero',  '$director','$reparto', '$sinopsis','$foto')");
 		
 		$consulta->execute();		
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();
@@ -32,7 +45,7 @@ class Pelicula
     public static function TraerTodasPeliculas()
 		{
 			$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
-			$consulta =$objetoAccesoDato->RetornarConsulta("SELECT id, titulo,fechaLanz,duracion, genero,director,reparto,sinopsis from peliculaingresada");
+			$consulta =$objetoAccesoDato->RetornarConsulta("SELECT id, titulo,fechaLanz,duracion, genero,director,reparto,sinopsis,foto from peliculaingresada");
 			$consulta->execute();			
 			return $consulta->fetchAll();		
 		}
