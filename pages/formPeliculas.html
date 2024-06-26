@@ -8,12 +8,13 @@ Pelicula::TraerTodasPeliculas();
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro | SC-MOVIES</title>
+    <title>Subir Pelicula | SC-MOVIES</title>
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css">
     <link rel="stylesheet" href="../css/estilos.css">
     <script src="https://kit.fontawesome.com/f7fb471b65.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet"> <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="shortcut icon" href="/assets/img/favicon-16x16.png" type="image/x-icon">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     
 </head>
 <body class="bodyRegistrarse">
@@ -27,40 +28,51 @@ Pelicula::TraerTodasPeliculas();
     <main  id="main" class="main">
       <section  data-aos="zoom-in"  data-aos-duration="1000" class="seccionRegistrarse">
     <div id="formato">
-        <h4 class="tituloInsertPelis"> SUBI TU PELI FAVORITA</h4>
+        <h4 style="color: bisque;"  class="tituloInsertPelis"> SUBI TU PELI FAVORITA</h4>
     
        
             <form enctype="multipart/form-data" class="mb-4"  id="formularioPelis" action="../php/hacerInsertarPeli.php" method="post">
             <div class="row">
-                    <h4>FOTO DE PORTADA</h4>
+
+                <input type="hidden" id="id" name="id">  
+                
+                    <h4 style="color: bisque;">FOTO DE PORTADA</h4><br>
+                    <label style="color: bisque;"for="imagen">Imagen:</label>
                     <p> <input name="subir_archivo" type="file" /></p>
                 </div>
                 <div>
-                    <input type="text" placeholder="Título" name="titulo" id="titulo" requerid >
-                    <span id="nombreError" class="error" ></span>
+                    <label style="color: bisque;" for="titulo">Titulo:</label>
+                    <input type="text" placeholder="Título" name="titulo" id="titulo"  >
+                    <span id="tituloError" class="error" ></span>
                 </div>
                 <div>
-                    <input type="date" placeholder="Fecha de Lanzamiento" name="fechaLanz" requerid >
-                    <span id="emailError" class="error"></span>
+                    <label style="color: bisque;" for="fechaLanz">Fecha de Lanzamiento.:</label>
+                    <input type="date" placeholder="Fecha de Lanzamiento" name="fechaLanz"  >
+                    <span id="fechaLanzError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Género"  name="genero" id="genero" requerid >
-                    <span id="emailError" class="error"></span>
+                    <label style="color: bisque;" for="genero">Genero:</label>
+                    <input type="text" placeholder="Género"  name="genero" id="genero"  >
+                    <span id="generoError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Duración"  name="duracion" id="duracion" requerid >
-                    <span id="emailError" class="error"></span>
+                    <label style="color: bisque;" for="duracion">Duracion:</label>
+                    <input type="text" placeholder="Duración"  name="duracion" id="duracion"  >
+                    <span id="duracionError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Director"  name="director" id="director" requerid >
-                    <span id="emailError" class="error"></span>
+                    <label style="color: bisque;" for="director">Director:</label>
+                    <input type="text" placeholder="Director"  name="director" id="director"  >
+                    <span id="directorError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Reparto"  name="reparto" id="reparto" requerid >
-                    <span id="emailError" class="error"></span>
+                    <label style="color: bisque;" for="reparto">Reparto:</label>
+                    <input type="text" placeholder="Reparto"  name="reparto" id="reparto"  >
+                    <span id="repartoError" class="error"></span>
                 </div>
                 <div>
-                    <input type="text" placeholder="Sinopsis"  name="sinopsis" id="sinopsis" requerid >
+                    <label style="color: bisque;" for="sinopsis">Sinopsis:</label>
+                    <input type="text" placeholder="Sinopsis"  name="sinopsis" id="sinopsis"  >
                     <span id="sinopsisError" class="error"></span>
                 </div>
                 
@@ -77,7 +89,31 @@ Pelicula::TraerTodasPeliculas();
             </form>
              
     </div>
+    
       </section>
+
+      <section class="sectionFormularioTabla">
+        <h2>Peliculas</h2>
+        <table class="table table-striped" style="color:beige">
+            <thead style="background-color:red">
+                <tr>
+                    <th>ID</th>
+                    <th>Titulo</th>
+                    <th>Fecha Lanzamiento</th>
+                    <th>Genero</th>
+                    <th>Duracion</th>
+                    <th>Director</th>
+                    <th>Reparto</th>
+                    <th>Sinopsis</th>                        
+                    <th colspan="2">Accciones</th>
+                </tr>
+                <tbody id="itemsTableBody">
+                        <!-- Lo vamos a generar con JS -->
+                </tbody>
+            </thead>
+        </table>
+
+    </section>
    
     </main>
     <footer class="footer">

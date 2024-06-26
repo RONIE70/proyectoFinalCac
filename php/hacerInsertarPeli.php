@@ -15,7 +15,7 @@ $_POST ["director"],$_POST ["reparto"],$_POST ["sinopsis"]))
   $reparto = $_POST ["reparto"];
   $sinopsis = $_POST ["sinopsis"];
   $foto = $_FILES["subir_archivo"];
-  var_dump($foto);
+  //var_dump($foto);
 }
 else
 {

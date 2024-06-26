@@ -11,7 +11,7 @@ class Pelicula
     public $sinopsis;
     public $foto;
 
-	public function __construct($titulo,$genero,$fechaLanz,$duracion=null,$director=null,$reparto=null,$sinopsis=null,$id=null)
+	public function __construct($titulo,$genero,$fechaLanz,$foto,$duracion=null,$director=null,$reparto=null,$sinopsis=null,$id=null)
     {
       $this->id=$id;  
       $this->titulo=$titulo;  
@@ -21,25 +21,47 @@ class Pelicula
       $this->director=$director; 
       $this->reparto=$reparto;  
       $this->sinopsis=$sinopsis;  
+	  $this->foto=$foto;
     }
 
+	public static function fromArray($data)
+    {
+        return new self
+        (
+            $data['titulo'] ?? null,
+            $data['genero'] ?? null,
+            $data['fechLanz'] ?? null,
+            $data['duracion'] ?? null,
+            $data['director'] ?? null,
+            $data['reparto'] ?? null,
+            $data['sinopsis'] ?? null,
+            $data['id'] ?? null,
+        );
+	}
+
+	public function toArray()
+    {
+        return get_object_vars($this);
+    }
+	
 
     public static function RetornaArrayPeliculas()
     {
             $objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
             $consulta =$objetoAccesoDato->RetornarConsulta("SELECT * FROM peliculas");
             $consulta->execute();           
-            return $consulta->fetchAll();     
+            return $consulta->fetchAll(PDO::FETCH_CLASS, "Pelicula");    
     }
 
     public static function InsertarUnaPelicula($titulo, $fechaLanz, $duracion,$genero,$director, $reparto, $sinopsis,$foto)                            
   	{
 		$objetoAccesoDato = AccesoDatos::dameUnObjetoAcceso(); 
 		$consulta =$objetoAccesoDato->RetornarConsulta("INSERT into peliculaingresada (titulo, fechaLanz, duracion, genero,director,reparto,sinopsis,foto) 
-        values ('$titulo', '$fechaLanz', '$duracion','$genero',  '$director','$reparto', '$sinopsis','$foto')");
+        values ('$titulo', '$fechaLanz', '$duracion','$genero','$director','$reparto', '$sinopsis','$foto')");
 		
-		$consulta->execute();		
+		$consulta->execute();
 		return $objetoAccesoDato->RetornarUltimoIdInsertado();
+		
 	}
 
     public static function TraerTodasPeliculas()
