@@ -51,7 +51,7 @@ function handleGet($conn)
     } 
     else 
     {
-        $stmt = $conn->query("SELECT * FROM peliculas");
+        $stmt = $conn->query("SELECT * FROM peliculaingresada");
         $peliculas = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $peliculaObjs = array_map(fn($pelicula) => Pelicula::fromArray($pelicula)->toArray(), $peliculas);
         echo json_encode(['peliculas' => $peliculaObjs]);
@@ -174,7 +174,7 @@ function handleDelete($conn)
 
     if ($id > 0) 
     {
-        $stmt = $conn->prepare("DELETE FROM peliculas WHERE id = ?");
+        $stmt = $conn->prepare("DELETE FROM peliculaingresada WHERE id = ?");
         $stmt->execute([$id]);
         echo json_encode(['message' => 'Película eliminada con éxito']);
     } 
